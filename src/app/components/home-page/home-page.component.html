@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>Reddit Viewer</span>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="changeTheme()">
+    <mat-icon>{{isLight ? "dark_mode" : "light_mode"}}</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-form-field>
+  <mat-label>Choose a subreddit</mat-label>
+  <mat-select name="subreddit" [(value)]="selectedArgument" (selectionChange)="loadPosts()">
+    <mat-option value="all" >All</mat-option>
+    <mat-option value="art" >Art</mat-option>
+    <mat-option value="worldnews" >News</mat-option>
+    <mat-option value="pokemon" >Pokemons</mat-option>
+    <mat-option value="aww" >Animals</mat-option>
+  </mat-select>
+</mat-form-field>
+
