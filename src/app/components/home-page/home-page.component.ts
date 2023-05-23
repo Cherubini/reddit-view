@@ -8,22 +8,16 @@ import { Post } from 'src/app/models/post/post';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-
+  posts: Post[]=[];
   isLight =true;
   selectedArgument :string='all'
-  posts:Post[];
   constructor(private dataMangerServ: RedditService){
     this.loadPosts()
   }
 
   loadPosts() {
     this.dataMangerServ.getRedditPosts(this.selectedArgument).subscribe({
-      next:data=>{
-        for(let i=0; i<data.data.children.length; i++){
-          let tempPost :Post;
-        }
-        console.log(data.data.children[i].data.title)
-      },
+      next:data=>this.posts=data,
       error: err => console.log(err)
     })
   }
